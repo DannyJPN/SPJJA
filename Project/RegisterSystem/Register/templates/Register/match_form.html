@@ -1,0 +1,62 @@
+<html>
+  <head>
+  <title> Match Form</title>
+                              {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+     <div class="adder">
+        <script type="text/javascript">
+        function validate() 
+        {
+            var player1 = document.forms["matchvalid"]["player1"].value;
+            var player2 = document.forms["matchvalid"]["player2"].value;
+            
+            var set1 = document.forms["matchvalid"]["set1"].value;
+            var set2 = document.forms["matchvalid"]["set2"].value;
+            var set3 = document.forms["matchvalid"]["set3"].value;
+            var set4 = document.forms["matchvalid"]["set4"].value;
+            var set5 = document.forms["matchvalid"]["set5"].value;
+            var sets = [set1, set2, set3, set4, set5];
+            var valid = true;
+
+            for (var item of sets) 
+            {
+                if (isNaN(item) && item.trim() != "") 
+                {
+                    alert("Incorrect value of set");
+                    valid = false;
+                      break;
+                }
+            }
+             if (player1 == player2) 
+                {
+                    alert("Player cannot play with himself");
+                    valid = false;
+                   
+                }
+            
+
+            return valid;
+        }
+    </script>
+        
+        
+        <form method="POST" name="matchvalid" onsubmit="return validate()" >
+       {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Confirm">
+       
+       </form>
+       </div>
+       <div class="links">
+      <a href="{% url 'ranking' %}">Ranking</a>
+       <a href="{% url 'teamlist' %}">List of teams</a>
+       <a href="{% url 'matchlist' %}">List of matches</a>
+       <a href="{% url 'match_form' %}">Add match</a>
+       <a href="{% url 'player_form' %}">Add player</a>
+       <a href="{% url 'team_form' %}">Add team</a>
+       
+     </div>
+  </body>
+</html>

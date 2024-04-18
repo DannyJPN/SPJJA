@@ -1,0 +1,40 @@
+/* CSS Document */
+
+
+
+
+
+
+/* CSS Document */
+
+body
+{
+    background-color: #EED41F;
+}
+
+.detail
+{
+    background-color: #00FF44;
+    text-align: center;
+    margin: 0px;
+}
+
+a
+{
+    color: #DD2211 ;
+    text-decoration: none;
+
+}
+a:hover
+{
+    text-decoration: underline;
+  
+}
+
+.score
+{
+
+    font-weight: bold;
+
+}
+

@@ -1,0 +1,26 @@
+<html>
+  <head>
+  <title> Player Form</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+     <div class="adder">
+       <form method="POST" >
+       {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add Player">
+       
+       </form>
+       </div>
+       <div class="links">
+      <a href="{% url 'ranking' %}">Ranking</a>
+       <a href="{% url 'teamlist' %}">List of teams</a>
+       <a href="{% url 'matchlist' %}">List of matches</a>
+       <a href="{% url 'match_form' %}">Add match</a>
+       <a href="{% url 'player_form' %}">Add player</a>
+       <a href="{% url 'team_form' %}">Add team</a>
+       
+     </div>
+  </body>
+</html>

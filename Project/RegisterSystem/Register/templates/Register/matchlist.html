@@ -1,0 +1,45 @@
+<html>
+  <head>
+  <title>Matches</title>
+                 {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+  
+  </head>
+  <body>
+  <div class="matchlist">
+      <p id = "matches"> 
+            <table border="1">
+            {% for match in matches %}
+                <tr>
+                    <td><a href = "{% url 'player_detail' match.player1.id %}">{{match.player1.surname}} {{match.player1.name}} </a></td>
+                    <td><a href = "{% url 'player_detail' match.player2.id %}">{{match.player2.surname}} {{match.player2.name}} </a></td>
+                    <td>{{match.set1}} </td>
+                    <td>{{match.set2}} </td>
+                    <td>{{match.set3}} </td>
+                    <td>{{match.set4}} </td>
+                    <td>{{match.set5}} </td>
+                    
+                    
+                    
+                    <td class="score">{{match.result1}}</td>
+                    <td class="score">{{match.result2}}</td>
+                    
+                </tr>
+            {% endfor %}
+            
+            
+            
+            </table>
+       </p>
+    </div>
+    <div class="links">
+      <a href="{% url 'ranking' %}">Ranking</a>
+       <a href="{% url 'teamlist' %}">List of teams</a>
+       <a href="{% url 'matchlist' %}">List of matches</a>
+       <a href="{% url 'match_form' %}">Add match</a>
+       <a href="{% url 'player_form' %}">Add player</a>
+       <a href="{% url 'team_form' %}">Add team</a>
+       
+     </div>
+  </body>
+</html>
